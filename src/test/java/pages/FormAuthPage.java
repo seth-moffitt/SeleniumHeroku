@@ -10,10 +10,12 @@ import java.time.Duration;
 
 public class FormAuthPage {
 
-    private final WebDriver driver;
+//    private final WebDriver driver;
+    private final WebDriverWait wait;
 
     public FormAuthPage(WebDriver driver) {
-        this.driver=driver;
+//        this.driver=driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
 
@@ -26,25 +28,20 @@ public class FormAuthPage {
 
     //Action Methods
     public void clickLogin() {
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(loginButton)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
     }
     public void clickLogout() {
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(logoutButton)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(logoutButton)).click();
     }
     public void enterUsername(String username) {
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOfElementLocated(usernameField)).sendKeys(username);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(usernameField)).sendKeys(username);
     }
     public void enterPassword(String password) {
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOfElementLocated(passwordField)).sendKeys(password);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField)).sendKeys(password);
     }
     public boolean loginSuccess() {
         try {
-            new WebDriverWait(driver, Duration.ofSeconds(10))
-                    .until(ExpectedConditions.presenceOfElementLocated(successMessage));
+            wait.until(ExpectedConditions.presenceOfElementLocated(successMessage));
             return true;
         } catch (TimeoutException e) {
             return false;
