@@ -23,6 +23,7 @@ public class MainPage {
     private final By basicAuth = By.xpath("//a[contains(text(),'Basic Auth')]");
     private final By formAuth = By.xpath("//a[contains(text(),'Form Authentication')]");
     private final By fileUpload = By.xpath("//a[contains(text(),'File Upload')]");
+    private final By jsAlerts = By.xpath("//a[contains(text(),'JavaScript Alerts')]");
 
     //Action Methods
     public void clickAuth() {
@@ -33,5 +34,8 @@ public class MainPage {
     }
     public void clickFileUpload () {
         wait.until(ExpectedConditions.elementToBeClickable(fileUpload)).click();
+    }
+    public void clickJSAlerts () {
+        wait.until(ExpectedConditions.elementToBeClickable(jsAlerts)).click();
     }
 }
