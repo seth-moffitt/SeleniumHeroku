@@ -24,6 +24,7 @@ public class MainPage {
     private final By formAuth = By.xpath("//a[contains(text(),'Form Authentication')]");
     private final By fileUpload = By.xpath("//a[contains(text(),'File Upload')]");
     private final By jsAlerts = By.xpath("//a[contains(text(),'JavaScript Alerts')]");
+    private final By dynamicLoading = By.xpath("//a[contains(text(),'Dynamic Loading')]");
 
     //Action Methods
     public void clickAuth() {
@@ -37,5 +38,8 @@ public class MainPage {
     }
     public void clickJSAlerts () {
         wait.until(ExpectedConditions.elementToBeClickable(jsAlerts)).click();
+    }
+    public void clickDynamicLoading () {
+        wait.until(ExpectedConditions.elementToBeClickable(dynamicLoading)).click();
     }
 }
